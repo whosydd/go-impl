@@ -21,18 +21,18 @@
       "title": "Go Impl",
       "properties": {
         "goImpl.receiverNameLength": {
-          "title": "Receiver name length",
+          "title": "%extension.goImpl.receiverNameLength.title%",
           "type": "number",
-          "description": "length of the receiver's name",
+          "description": "%extension.goImpl.receiverNameLength.description%",
           "enum": [1,2],
           "default": 1
         },
         "goImpl.receiverType": {
-          "title": "Receiver type",
+          "title": "%extension.goImpl.receiverType.title%",
           "type": "string",
-          "description": "receiver's type",
+          "description": "%extension.goImpl.receiverType.description%",
           "enum": ["value", "pointer"],
-          "enumDescriptions": ["value receiver","pointer receiver"],
+          "enumDescriptions": ["%extension.goImpl.receiverType.value.value%","%extension.goImpl.receiverType.value.pointer%"],
           "default": "pointer"
         }
       }

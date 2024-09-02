@@ -1,0 +1,8 @@
+{
+  "extension.goImpl.receiverNameLength.title": "Receiver name length",
+  "extension.goImpl.receiverNameLength.description": "length of receiver name",
+  "extension.goImpl.receiverType.title": "Receiver type",
+  "extension.goImpl.receiverType.description": "receiver's type",
+  "extension.goImpl.receiverType.value.value": "value receiver",
+  "extension.goImpl.receiverType.value.pointer": "pointer receiver"
+}
