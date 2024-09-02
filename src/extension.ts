@@ -31,6 +31,10 @@ export class ImplProvider implements vscode.CodeActionProvider {
     codeAction: vscode.CodeAction,
     token: vscode.CancellationToken
   ): vscode.ProviderResult<vscode.CodeAction> {
+    const receiverNameLength = vscode.workspace
+      .getConfiguration()
+      .get('goImpl.receiverNameLength') as number
+    const receiverType = vscode.workspace.getConfiguration().get('goImpl.receiverType')
     const quickPick = vscode.window.createQuickPick()
 
     quickPick.placeholder = TIP
@@ -64,9 +68,9 @@ export class ImplProvider implements vscode.CodeActionProvider {
       description?.includes('/')
         ? (interfaceName = `${description}.${label}`)
         : (interfaceName = `${label}`)
-      const command = `impl "${this.structAtLine.toLowerCase().charAt(0)} ${
-        this.structAtLine
-      }" ${interfaceName}`
+      const command = `impl "${this.structAtLine.toLowerCase().substring(0, receiverNameLength)} ${
+        receiverType === 'pointer' ? '*' : ''
+      }${this.structAtLine}" ${interfaceName}`
 
       cp.exec(command, { cwd: root }, (err, stdout, stderr) => {
         if (err) {
@@ -85,17 +89,7 @@ export class ImplProvider implements vscode.CodeActionProvider {
             const struct = obj.filter(
               (item: vscode.SymbolInformation) => item.name === this.structAtLine
             )
-            const reg = new RegExp(
-              `${this.structAtLine.toLowerCase().charAt(0)} ${this.structAtLine}`,
-              'g'
-            )
-            const out = stdout.replace(
-              reg,
-              `${this.structAtLine.toLowerCase().charAt(0)} $\{1|${this.structAtLine},*${
-                this.structAtLine
-              }|\}`
-            )
-            const snippet = new vscode.SnippetString('\n' + out)
+            const snippet = new vscode.SnippetString('\n' + stdout)
 
             editor.insertSnippet(snippet, new vscode.Position(struct[0].range.e.c + 1, 0))
           })
