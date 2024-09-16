@@ -22,6 +22,15 @@ Use `QuickFix` to implement interface.
 
 ![impl2](https://raw.githubusercontent.com/whosydd/images-in-one/main/images/202305161701687.gif)
 
+## Configuration
+
+```json
+ "goImpl.receiverType": "pointer", // default
+ "goImpl.receiverNameLength": 1 // default
+```
+
+
+
 ## Thanks
 
 - [day-dreams/autoimpl](https://github.com/day-dreams/autoimpl)
