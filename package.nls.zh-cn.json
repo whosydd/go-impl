@@ -1,0 +1,8 @@
+{
+  "extension.goImpl.receiverNameLength.title": "接收者名称长度",
+  "extension.goImpl.receiverNameLength.description": "接收者名称的长度",
+  "extension.goImpl.receiverType.title": "接收者类型",
+  "extension.goImpl.receiverType.description": "接收者的类型",
+  "extension.goImpl.receiverType.value.value": "值接收者",
+  "extension.goImpl.receiverType.value.pointer": "指针接收者"
+}

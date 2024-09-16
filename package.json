@@ -14,8 +14,29 @@
     "onCommand:go-impl.quickpick"
   ],
   "main": "./dist/extension.js",
+  "l10n": "./l10n",
   "contributes": {
-    "commands": []
+    "commands": [],
+    "configuration": {
+      "title": "Go Impl",
+      "properties": {
+        "goImpl.receiverNameLength": {
+          "title": "%extension.goImpl.receiverNameLength.title%",
+          "type": "number",
+          "description": "%extension.goImpl.receiverNameLength.description%",
+          "enum": [1,2],
+          "default": 1
+        },
+        "goImpl.receiverType": {
+          "title": "%extension.goImpl.receiverType.title%",
+          "type": "string",
+          "description": "%extension.goImpl.receiverType.description%",
+          "enum": ["value", "pointer"],
+          "enumDescriptions": ["%extension.goImpl.receiverType.value.value%","%extension.goImpl.receiverType.value.pointer%"],
+          "default": "pointer"
+        }
+      }
+    }
   },
   "icon": "icon.png",
   "author": "GY <dev.youngkwok718@gmail.com>",
